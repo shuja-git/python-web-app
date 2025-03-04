@@ -275,7 +275,6 @@ https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 
 Login Succeeded
 ```
-
 ### Build your first Docker Image
 
 You need to change the username accoringly in the below command
@@ -285,7 +284,21 @@ docker build -t abhishekf5/my-first-docker-image:latest .
 ```
 
 Output of the above command
+On Failure:
+```
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
 
+Sending build context to Docker daemon  3.072kB
+```
+### Install the buildx component to build docker image with BuildKit
+
+```
+apt install docker-buildx
+```
+
+On Success:
 ```
     Sending build context to Docker daemon  992.8kB
     Step 1/6 : FROM ubuntu:latest
