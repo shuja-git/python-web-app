@@ -282,6 +282,9 @@ docker run -d --mount type=bind,source=/host/path,target=/container/path,readonl
 
 Let me know if you need further clarification! 🚀
 
+
+# Volume Size
+
 In Docker, **volumes do not have a built-in size limit** by default. They grow dynamically based on the amount of data stored in them. However, you **can control storage size** using different approaches depending on your environment.
 
 ---
