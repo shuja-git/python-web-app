@@ -113,6 +113,44 @@ docker attach <container_id>
 ```
 Attach to a running container's standard input, output, and error streams.
 
+If a container is running in **detached mode** (background), you can get inside it using the following methods:
+
+### **1. Using `docker exec` (Recommended)**
+Run a shell inside the running container:
+```sh
+docker exec -it <container_id_or_name> bash
+```
+or, if `bash` is not available, use `sh`:
+```sh
+docker exec -it <container_id_or_name> sh
+```
+- `-i` → Interactive mode  
+- `-t` → Allocate a pseudo-TTY (terminal)  
+- `bash/sh` → Starts a shell inside the container  
+
+### **2. Using `docker attach` (For Foreground Mode)**
+This attaches your terminal to the running container:
+```sh
+docker attach <container_id_or_name>
+```
+- This method is **not recommended** if the container is running a service, as it may disrupt the process.
+
+### **3. Using `docker exec` to Run a Command**
+Instead of opening a shell, you can also run a single command inside the container:
+```sh
+docker exec -it <container_id_or_name> ls /
+```
+This runs `ls /` inside the container and shows the output.
+
+### **4. Using `docker ps` to Find Running Containers**
+If you don’t know the container ID or name, list running containers:
+```sh
+docker ps
+```
+Then use the `CONTAINER ID` or `NAMES` in the above commands.
+
+Let me know if you need more details! 🚀
+
 ## 3. Docker Volumes
 
 ### List Volumes
