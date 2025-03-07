@@ -69,6 +69,10 @@ This way, you can run multiple containers on a single host platform where one co
 docker network connect my_bridge web
 ```
 
+```sh
+docker network disconnect my_bridge web
+```
+
 This command attaches the existing `web` container to the `my_bridge` network, enabling communication between containers in that network.
 
 ## Host Networking
