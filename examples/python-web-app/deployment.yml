@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deployment
+  labels:
+    app: sample-python-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample-python-app
+  template:
+    metadata:
+      labels:
+        app: sample-python-app
+    spec:
+      containers:
+      - name: sample-python-app
+        image: wasimakram0028/django-web-app:latest
+        volumeMounts:
+        - name: foo
+          mountPath: "/opt"
+        ports:
+        - containerPort: 8000
+      volumes:
+      - name: foo
+        secret:
+          secretName: secret-basic-auth
+
